@@ -13,9 +13,9 @@
       },
       "ghcr.io/devcontainers/features/node:1": {
           "version": "16"
-      },
+      }
       // "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-      "ghcr.io/devcontainers/features/git:1": {}
+      // "ghcr.io/devcontainers/features/git:1": {}
   },
   "customizations": {
     // Configure properties specific to VS Code.
@@ -23,7 +23,7 @@
       "extensions": [ "xdebug.php-debug" ]
     }
   },
-  "onCreateCommand": "sudo chmod +x .devcontainer/install-tools.sh && .devcontainer/install-tools.sh",
+  // "onCreateCommand": "sudo chmod +x .devcontainer/install-tools.sh && .devcontainer/install-tools.sh",
   "postCreateCommand": "sudo chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
   "forwardPorts": [
       8080
