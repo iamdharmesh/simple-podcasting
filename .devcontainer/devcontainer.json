@@ -3,6 +3,7 @@
   "name": "Simple Podcasting Development",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
+  // "workspaceFolder": "/var/www/html/",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
@@ -13,8 +14,14 @@
       "ghcr.io/devcontainers/features/node:1": {
           "version": "16"
       },
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+      // "ghcr.io/devcontainers/features/docker-in-docker:2": {},
       "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "extensions": [ "xdebug.php-debug" ]
+    }
   },
   "onCreateCommand": "sudo chmod +x .devcontainer/install-tools.sh && .devcontainer/install-tools.sh",
   "postCreateCommand": "sudo chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
@@ -23,4 +30,3 @@
   ],
   "remoteUser": "wordpress"
 }
-

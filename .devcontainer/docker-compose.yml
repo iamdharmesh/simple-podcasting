@@ -12,7 +12,9 @@ services:
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
     volumes:
-      - ../..:/workspaces:cached
+      - wordpress:/var/www/html
+      - ../:/var/www/html/wp-content/plugins/simple-podcasting
+      - ../..:/workspaces
 
   db:
     image: mariadb
@@ -26,4 +28,5 @@ services:
       - db:/var/lib/mysql
 
 volumes:
+  wordpress:
   db:
