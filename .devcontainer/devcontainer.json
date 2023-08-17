@@ -1,10 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json.
 {
-  "name": "Simple Podcasting Development",
+  "name": "${localWorkspaceFolderBasename} Development",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
-  // "workspaceFolder": "/var/www/html/",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/var/www/html/",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
@@ -14,8 +13,6 @@
       "ghcr.io/devcontainers/features/node:1": {
           "version": "16"
       }
-      // "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-      // "ghcr.io/devcontainers/features/git:1": {}
   },
   "customizations": {
     // Configure properties specific to VS Code.
@@ -23,8 +20,8 @@
       "extensions": [ "xdebug.php-debug" ]
     }
   },
-  // "onCreateCommand": "sudo chmod +x .devcontainer/install-tools.sh && .devcontainer/install-tools.sh",
-  "postCreateCommand": "sudo chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
+  "onCreateCommand": "sudo cp /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
+  "postCreateCommand": "sudo chmod +x /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh && /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh",
   "forwardPorts": [
       8080
   ],
