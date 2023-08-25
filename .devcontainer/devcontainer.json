@@ -20,7 +20,7 @@
       "extensions": [ "xdebug.php-debug" ]
     }
   },
-  "onCreateCommand": "sudo cp /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
+  "onCreateCommand": "sudo chmod -c ugo+w /var/www/html && sudo cp /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
   "postCreateCommand": "sudo chmod +x /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh && /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh",
   "forwardPorts": [
       8080
