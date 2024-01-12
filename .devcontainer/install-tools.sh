@@ -20,4 +20,4 @@ set -eux
 
 
 # Copy the welcome message
-sudo cp /var/www/html/wp-content/plugins/simple-podcasting/.devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt
+sudo cp .devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt

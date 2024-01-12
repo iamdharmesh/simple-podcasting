@@ -3,25 +3,19 @@
   "name": "${localWorkspaceFolderBasename} Development",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
-  "workspaceFolder": "/var/www/html/",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
       "ghcr.io/devcontainers/features/common-utils:2": {
-          "username": "wordpress"
-      },
-      "ghcr.io/devcontainers/features/node:1": {
-          "version": "16"
-      }
+            "username": "wordpress"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "16"
+        }
   },
-  "customizations": {
-    // Configure properties specific to VS Code.
-    "vscode": {
-      "extensions": [ "xdebug.php-debug" ]
-    }
-  },
-  "onCreateCommand": "sudo chmod -c ugo+w /var/www/html && sudo cp /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/welcome-message.txt /usr/local/etc/vscode-dev-containers/first-run-notice.txt",
-  "postCreateCommand": "sudo chmod +x /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh && /var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh",
+  "onCreateCommand": "sudo chmod +x .devcontainer/install-tools.sh && .devcontainer/install-tools.sh",
+  "postCreateCommand": "sudo chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh",
   "forwardPorts": [
       8080
   ],
